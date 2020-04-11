@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Homepage
+{% endblock title %}
+
+{% block home_active %}
+active
+{% endblock home_active %}
+
+
+{% block body %}
+<div class="container">
+<h2 class="display-4 text-center"><strong><u>Text Analyzer</u></strong></h2>
+<div class="jumbotron my-3">
+<form class="was-validated" action="analyze/" method="POST"> {% csrf_token %}
+    <label for="validationTextarea"><h4>Enter some text : </h4></label>
+    <textarea name="text" class="form-control is-invalid mx-auto" id="validationTextarea" placeholder="Write some text here.." required rows="6"></textarea>
+    {% comment %} <div class="invalid-feedback">
+      Please enter a message in the textarea.
+    </div> {% endcomment %}
+    <div class="mt-3">
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" name="removepunc" id="removepunc">
+      <label class="custom-control-label" for="removepunc">Remove Punctuations</label>
+    </div> 
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" name="removenumbers" id="removenumbers">
+      <label class="custom-control-label" for="removenumbers">Remove Numbers</label>
+    </div>
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" name="removenewline" id="removenewline">
+      <label class="custom-control-label" for="removenewline">Remove New Lines</label>
+    </div>
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" name="removespace" id="removespace">
+      <label class="custom-control-label" for="removespace">Remove Extra Spaces</label>
+    </div>
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" name="capitalizeall" id="capitalizeall">
+      <label class="custom-control-label" for="capitalizeall">Captalize All Text</label>
+    </div>
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" name="reversetext" id="reversetext">
+      <label class="custom-control-label" for="reversetext">Reverse Text</label>
+    </div>
+    </div>
+    <button type="submit" class="btn btn-dark mt-3">Analyze Text</button>
+  </form>
+</div>
+
+      
+    </div>
+{% endblock body %}

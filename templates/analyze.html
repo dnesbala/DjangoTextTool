@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Result
+{% endblock title %}
+
+{% block body %}
+<div class="alert alert-{{alert_text}} alert-dismissible fade show" role="alert">
+  <strong>{{analyzed_prefix}}</strong> <h3>After {{task}} , your result is :</h3>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="container"  style="font-size: 1.5em; background-color: #DCDCDC;">
+    <div class="d-flex align-items-center">
+      <pre class="p-4" id="result_text">{{analyzed_text}}</pre>
+      <div class="ml-auto">
+      <button onclick="copyText('result_text')" class="btn btn-outline-success mr-3">Copy</button>
+      <a href="{% url 'home_page' %}" class="btn btn-outline-info text-decoration-none text-dark">Back</a>
+      </div>
+    </div>
+</div>
+{% endblock body %}
+
+{% block script %}
+<script>
+  function copyText(result_text) {
+  if (document.selection) {
+    const range = document.body.createTextRange();
+    range.moveToElementText(document.getElementById(result_text));
+    range.select().createTextRange();
+    document.execCommand("copy");
+  } else if (window.getSelection) {
+    const range = document.createRange();
+    range.selectNode(document.getElementById(result_text));
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+    alert("COPIED! The text has been copied.");
+  }
+}
+</script>
+{% endblock script %}

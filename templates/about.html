@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} About {% endblock title %} 
+{% block about_active %}
+active
+{% endblock about_active %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="bg-light text-dark p-3 my-4">
+        <h2 class="text-center">About TextTools</h2>
+        <p class="lead">
+          TextTools is a small tool made for the purpose of manipulating text
+          according to the given options.
+        </p>
+        <p class="lead">
+          Simply, check the required task and you are one button away from
+          analyzing your text. You can check multiple tasks at a time.
+        </p>
+        <p class="lead">
+          This app is built on Django, just for the purpose of learning about
+          concepts of views, urls and templates. Thanks to CodeWithHarry.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4 mt-4">
+      <div class="text-center">
+        <h3 class=>Tasks :</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">• Remove Punctuations</li>
+          <li class="list-group-item">• Remove Numbers</li>
+          <li class="list-group-item">• Remove Newlines</li>
+          <li class="list-group-item">• Remove Extra Spaces</li>
+          <li class="list-group-item">• Capitalize Text</li>
+          <li class="list-group-item">• Reverse Text</li>
+          <li class="list-group-item">• ALL IN ONE CLICK</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}
